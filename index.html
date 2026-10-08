@@ -1,27 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AI Productivity Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>AI-Powered Workplace Productivity Assistant</h1>
+    <div class="container">
 
-    <p>
-        A workplace assistant designed to help employees with
-        common productivity tasks.
-    </p>
+        <h1>AI-Powered Workplace Productivity Assistant</h1>
 
-    <h2>Productivity Tools</h2>
+        <p class="intro">
+            Your digital workplace assistant for improving productivity,
+            communication and task management.
+        </p>
 
-    <button>Email Generator</button>
-    <button>Meeting Summariser</button>
-    <button>Task Planner</button>
-    <button>Research Assistant</button>
-    <button>Workplace Chatbot</button>
+        <div class="tools">
+
+            <button onclick="generateEmail()">
+                ✉️ Email Generator
+            </button>
+
+            <button onclick="summariseMeeting()">
+                📝 Meeting Summariser
+            </button>
+
+            <button onclick="planTasks()">
+                ✅ Task Planner
+            </button>
+
+            <button onclick="researchTopic()">
+                🔎 Research Assistant
+            </button>
+
+            <button onclick="workplaceChat()">
+                💬 Workplace Chatbot
+            </button>
+
+        </div>
+
+        <div id="result">
+        </div>
+
+        <footer>
+            <p>
+                AI Skills Acceleration Programme | AI Productivity Assistant
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
