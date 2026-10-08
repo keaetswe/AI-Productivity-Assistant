@@ -1,129 +1,204 @@
+function showResult(text) {
+    const result = document.getElementById("result");
+
+    result.style.display = "block";
+    result.textContent = text;
+
+    window.scrollTo({
+        top: result.offsetTop - 20,
+        behavior: "smooth"
+    });
+}
+
+
 function generateEmail() {
+
     const topic = prompt("What is the email about?");
 
     if (!topic) return;
 
-    const email = `
+    const promptUsed = `Act as a professional workplace communication assistant.
+
+Write a clear, polite and professional email based on the topic provided by the user.
+
+Topic:
+${topic}`;
+
+    const output = `EMAIL GENERATOR
+
+Prompt Used:
+${promptUsed}
+
+Demo Output:
+
 Subject: ${topic}
 
 Dear Team,
 
-I hope you are doing well.
+I hope you are well.
 
 I am writing regarding ${topic}.
 
-Please let me know if you require any additional information or have any questions.
+Please let me know if you require any further information.
 
 Kind regards,
-Employee
-`;
+[Your Name]`;
 
-    showResult(email);
+    showResult(output);
 }
 
+
 function summariseMeeting() {
-    const notes = prompt("Paste your meeting notes:");
+
+    const notes = prompt("Enter your meeting notes:");
 
     if (!notes) return;
 
-    const summary = `
-MEETING SUMMARY
+    const promptUsed = `Act as a workplace meeting assistant.
 
-Key Discussion:
+Summarise the meeting notes provided by the user.
+
+Identify:
+- Main discussion points
+- Important decisions
+- Action items
+- Follow-up actions
+
+Meeting notes:
+${notes}`;
+
+    const output = `MEETING SUMMARY
+
+Prompt Used:
+${promptUsed}
+
+Demo Summary:
+
+Main Discussion:
 ${notes}
 
 Action Items:
-• Review the points discussed
-• Assign responsibilities
-• Follow up on outstanding tasks
+- Review the discussed points
+- Complete assigned tasks
+- Follow up with the team`;
 
-Next Step:
-Schedule a follow-up meeting if required.
-`;
-
-    showResult(summary);
+    showResult(output);
 }
 
+
 function planTasks() {
-    const task = prompt("What task do you need to complete?");
+
+    const task = prompt("What task do you need help planning?");
 
     if (!task) return;
 
-    const plan = `
-TASK PLAN
+    const promptUsed = `Act as a workplace productivity assistant.
 
-Main Task:
-${task}
+Break the user's task into smaller, manageable steps.
 
-Priority:
-High
+Task:
+${task}`;
 
-Steps:
-1. Define the objective
-2. Break the task into smaller activities
-3. Complete the most important activity first
-4. Review the completed work
-5. Submit or implement the final result
+    const output = `TASK PLAN
 
-Status:
-Not Started
-`;
+Prompt Used:
+${promptUsed}
 
-    showResult(plan);
+Suggested Steps:
+
+1. Define the main objective.
+2. Break the task into smaller activities.
+3. Prioritise the activities.
+4. Complete the highest-priority task first.
+5. Review the final outcome.`;
+
+    showResult(output);
 }
 
+
 function researchTopic() {
+
     const topic = prompt("What topic would you like to research?");
 
     if (!topic) return;
 
-    const research = `
-RESEARCH ASSISTANT
+    const promptUsed = `Act as a research assistant.
 
-Topic:
-${topic}
+Help the user investigate the topic provided.
 
-Research Approach:
-1. Define the research question
-2. Identify reliable sources
-3. Compare information from multiple sources
-4. Summarise the key findings
-5. Record references
+Research topic:
+${topic}`;
 
-Important:
-Always verify AI-generated information using reliable sources.
-`;
+    const output = `RESEARCH ASSISTANT
 
-    showResult(research);
+Prompt Used:
+${promptUsed}
+
+Research Plan:
+
+1. Understand the topic.
+2. Identify the main areas to investigate.
+3. Search reliable sources.
+4. Compare information from different sources.
+5. Verify important information before using it.`;
+
+    showResult(output);
 }
 
+
 function workplaceChat() {
-    const question = prompt("Ask the workplace assistant a question:");
+
+    const question = prompt("Ask a workplace-related question:");
 
     if (!question) return;
 
-    const response = `
-AI WORKPLACE ASSISTANT
+    const promptUsed = `Act as a helpful workplace productivity assistant.
 
-Your question:
-${question}
+Answer the user's workplace-related question clearly and professionally.
 
-Suggested response:
+User question:
+${question}`;
 
-I can help you approach this workplace task by identifying
-the main objective, breaking it into smaller steps and
-suggesting an appropriate solution.
+    const output = `WORKPLACE CHATBOT
 
-Remember to review AI-generated information before using it
-in a professional setting.
-`;
+Prompt Used:
+${promptUsed}
 
-    showResult(response);
+Demo Response:
+
+Your question has been received.
+
+For a reliable workplace answer, review the relevant company policies,
+procedures and trusted sources before making an important decision.`;
+
+    showResult(output);
 }
 
-function showResult(text) {
-    const result = document.getElementById("result");
 
-    result.innerText = text;
-    result.style.display = "block";
+async function copyPrompt(id) {
+
+    const promptText = document.getElementById(id).innerText;
+
+    try {
+
+        await navigator.clipboard.writeText(promptText);
+
+        alert("Prompt copied successfully!");
+
+    } catch (error) {
+
+        const textArea = document.createElement("textarea");
+
+        textArea.value = promptText;
+
+        document.body.appendChild(textArea);
+
+        textArea.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(textArea);
+
+        alert("Prompt copied successfully!");
+    }
 }
