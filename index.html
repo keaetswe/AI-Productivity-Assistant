@@ -1,63 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AI Productivity Assistant</title>
-
+    <title>AI-Powered Workplace Productivity Assistant</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>AI-Powered Workplace Productivity Assistant</h1>
+    <header>
+        <h1>🤖 AI-Powered Workplace Productivity Assistant</h1>
+        <p>
+            An AI productivity assistant designed to support workplace
+            communication, meetings, tasks, research and everyday questions.
+        </p>
+    </header>
 
-        <p class="intro">
-            Your digital workplace assistant for improving productivity,
-            communication and task management.
+    <section class="tools">
+        <h2>Productivity Tools</h2>
+
+        <div class="tool-buttons">
+            <button onclick="generateEmail()">✉️ Email Generator</button>
+            <button onclick="summariseMeeting()">📝 Meeting Summariser</button>
+            <button onclick="planTasks()">✅ Task Planner</button>
+            <button onclick="researchTopic()">🔎 Research Assistant</button>
+            <button onclick="workplaceChat()">💬 Workplace Chatbot</button>
+        </div>
+    </section>
+
+    <div id="result"></div>
+
+
+    <!-- PROMPT ENGINEERING LIBRARY -->
+
+    <section class="prompt-library">
+
+        <h2>🧠 Prompt Engineering Library</h2>
+
+        <p class="prompt-intro">
+            These prompts demonstrate how prompt engineering is used to guide
+            AI tools to produce useful and structured workplace outputs.
         </p>
 
-        <div class="tools">
 
-            <button onclick="generateEmail()">
-                ✉️ Email Generator
-            </button>
+        <!-- EMAIL PROMPT -->
 
-            <button onclick="summariseMeeting()">
-                📝 Meeting Summariser
-            </button>
+        <div class="prompt-card">
 
-            <button onclick="planTasks()">
-                ✅ Task Planner
-            </button>
+            <details>
 
-            <button onclick="researchTopic()">
-                🔎 Research Assistant
-            </button>
+                <summary>✉️ Email Generation Prompt</summary>
 
-            <button onclick="workplaceChat()">
-                💬 Workplace Chatbot
-            </button>
+                <pre id="emailPrompt">Act as a professional workplace communication assistant.
+
+Write a clear, polite and professional email based on the topic provided by the user.
+
+The email should:
+- Have a suitable subject line
+- Use professional language
+- Be concise and easy to understand
+- Include an appropriate greeting and closing
+
+Topic:
+[User's topic]
+
+Expected Output:
+A professional workplace email that can be reviewed and edited before sending.</pre>
+
+                <button class="copy-btn" onclick="copyPrompt('emailPrompt')">
+                    📋 Copy Prompt
+                </button>
+
+            </details>
 
         </div>
 
-        <div id="result">
+
+        <!-- MEETING PROMPT -->
+
+        <div class="prompt-card">
+
+            <details>
+
+                <summary>📝 Meeting Summarisation Prompt</summary>
+
+                <pre id="meetingPrompt">Act as a workplace meeting assistant.
+
+Summarise the meeting notes provided by the user.
+
+Identify:
+- Main discussion points
+- Important decisions
+- Action items
+- People responsible for tasks, if mentioned
+- Follow-up actions
+
+Do not add information that was not included in the meeting notes.
+
+Meeting notes:
+[User's notes]
+
+Expected Output:
+A concise and structured meeting summary.</pre>
+
+                <button class="copy-btn" onclick="copyPrompt('meetingPrompt')">
+                    📋 Copy Prompt
+                </button>
+
+            </details>
+
         </div>
 
-        <footer>
+
+        <!-- TASK PROMPT -->
+
+        <div class="prompt-card">
+
+            <details>
+
+                <summary>✅ Task Planning Prompt</summary>
+
+                <pre id="taskPrompt">Act as a workplace productivity assistant.
+
+Break the user's task into smaller, manageable steps.
+
+For each task:
+- Identify the main objective
+- Suggest logical steps
+- Suggest a priority
+- Identify the expected outcome
+
+Task:
+[User's task]
+
+Expected Output:
+A clear and practical task plan.</pre>
+
+                <button class="copy-btn" onclick="copyPrompt('taskPrompt')">
+                    📋 Copy Prompt
+                </button>
+
+            </details>
+
+        </div>
+
+
+        <!-- RESEARCH PROMPT -->
+
+        <div class="prompt-card">
+
+            <details>
+
+                <summary>🔎 Research Assistance Prompt</summary>
+
+                <pre id="researchPrompt">Act as a research assistant.
+
+Help the user investigate the topic provided.
+
+Provide:
+- A brief explanation of the topic
+- Key areas to investigate
+- Suggested search questions
+- Reliable source types to consult
+- Important information that should be verified
+
+Do not present unverified information as fact.
+
+Research topic:
+[User's topic]
+
+Expected Output:
+A structured research plan that helps the user conduct further research.</pre>
+
+                <button class="copy-btn" onclick="copyPrompt('researchPrompt')">
+                    📋 Copy Prompt
+                </button>
+
+            </details>
+
+        </div>
+
+
+        <!-- CHATBOT PROMPT -->
+
+        <div class="prompt-card">
+
+            <details>
+
+                <summary>💬 Workplace Chatbot Prompt</summary>
+
+                <pre id="chatPrompt">Act as a helpful workplace productivity assistant.
+
+Answer the user's workplace-related question clearly and professionally.
+
+If the question is unclear, ask for clarification.
+
+If you are uncertain about information, state that the information should be verified.
+
+User question:
+[User's question]
+
+Expected Output:
+A helpful, concise workplace response.</pre>
+
+                <button class="copy-btn" onclick="copyPrompt('chatPrompt')">
+                    📋 Copy Prompt
+                </button>
+
+            </details>
+
+        </div>
+
+
+        <div class="responsible-ai">
+
+            <h3>🛡️ Responsible AI</h3>
+
             <p>
-                AI Skills Acceleration Programme | AI Productivity Assistant
+                Users should review AI-generated content before using it.
+                Personal, confidential and sensitive information should not
+                be entered into AI tools unnecessarily. AI outputs should
+                also be checked for accuracy, bias and reliability.
             </p>
-        </footer>
 
-    </div>
+        </div>
 
-    <script src="script.js"></script>
+    </section>
+
+
+    <footer>
+        <p>AI-Powered Workplace Productivity Assistant | ASA 22</p>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
